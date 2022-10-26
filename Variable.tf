@@ -15,20 +15,3 @@ variable "bucket_name" {
   default     = "new-test-bucket-for-efuse-01"
 }
 
-variable "backend_bucket_name" {
-  description = "Backend Bucket Name"
-  type        = string
-  default     = "e-fuse-terraform-state-projet-o301"
-}
-
-variable "backend_bucket_key" {
-  description = "Backend Bucket Key"
-  type        = string
-  default     = "path/to/my/key"
-}
-
-variable "backend_bucket_region" {
-  description = "Backand bucket region "
-  type        = string
-  default     = "us-east-2"
-}
