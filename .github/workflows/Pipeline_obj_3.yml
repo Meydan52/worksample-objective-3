@@ -54,6 +54,14 @@ jobs:
       - name: Apply Terraform
         run: |
           terraform apply -var-file envs/var.tfvars  -auto-approve
+      
+      - name: test envs
+        run: |
+          echo "BUCKET_NAMEX=$(terraform output bucket_name)" >> $GITHUB_ENV
+          echo ${{ env.BUCKET_NAMEX }}
+          echo $(terraform output bucket_name)
+          BUCKETT=$(terraform output bucket_name)
+          echo Bucket is $BUCKET    
 
       # Install AWS CLI to test file upload to S3 using iam user keys
       - name: Insatall AWS CLI
