@@ -64,6 +64,7 @@ jobs:
       # Upload file to s3 bucket using user keys
       - name: Upload to S3
         run: |
+          echo "BUCKET_NAME=$(terraform output bucket_name)" >> $GITHUB_ENV
           aws configure set aws_access_key_id $(terraform output access_key_id)
           aws configure set aws_secret_access_key $(terraform output secret_access_key)
-          aws s3 cp ./testfile2.txt s3://$(terraform output bucket_name)/
+          aws s3 cp ./testfile2.txt s3://${{ env.BUCKET_NAME }}/
