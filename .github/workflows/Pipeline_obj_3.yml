@@ -64,7 +64,7 @@ jobs:
       # Upload file to s3 bucket using user keys
       - name: Upload to S3
         run: |
-          echo BUCKET_NAMEX=$(terraform output bucket_name) >> $GITHUB_ENV
+          echo "BUCKET_NAMEX=$(terraform output bucket_name)" >> $GITHUB_ENV
           echo ${{ env.BUCKET_NAMEX }}
           echo $(terraform output bucket_name)
           BUCKETT=$(terraform output bucket_name)
