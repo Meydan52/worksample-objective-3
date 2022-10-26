@@ -54,8 +54,9 @@ jobs:
       - name: Apply Terraform
         run: |
           terraform apply -var-file envs/var.tfvars  -auto-approve
-      
-      - name: test envs
+
+      # Create an Environment variable to store the bucket name to upload files to
+      - name: Add bucket name to a new env varriable
         run: |
           echo "BUCKET_NAMEX=$(terraform output bucket_name)" >> $GITHUB_ENV
   
@@ -69,7 +70,7 @@ jobs:
       # Upload file to s3 bucket using user keys
       - name: Upload to S3
         run: |
-          echo ${{ env.BUCKET_NAMEX }}
           aws configure set aws_access_key_id $(terraform output access_key_id)
           aws configure set aws_secret_access_key $(terraform output secret_access_key)
+          aws s3 cp ./testfile2.txt s3://${{ env.BUCKET_NAMEX }}/
           aws s3 cp ./testfile3.txt s3://${{ env.BUCKET_NAMEX }}/
