@@ -67,6 +67,7 @@ jobs:
           echo "BUCKET_NAME=$(terraform output bucket_name)" >> $GITHUB_ENV
           echo ${{ env.BUCKET_NAME }}
           echo $(terraform output bucket_name)
+          BUCKETT=$(terraform output bucket_name)
           aws configure set aws_access_key_id $(terraform output access_key_id)
           aws configure set aws_secret_access_key $(terraform output secret_access_key)
-          aws s3 cp ./testfile2.txt s3://${{ env.BUCKET_NAME }}/
+          aws s3 cp ./testfile2.txt s3://$BUCKETT/
