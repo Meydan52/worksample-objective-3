@@ -68,7 +68,7 @@ jobs:
           python3 -m pip install --user awscli
 
       # Upload file to s3 bucket using user keys
-      - name: Upload to S3
+      - name: Upload files to S3
         run: |
           aws configure set aws_access_key_id $(terraform output access_key_id)
           aws configure set aws_secret_access_key $(terraform output secret_access_key)
