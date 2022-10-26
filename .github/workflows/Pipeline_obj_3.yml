@@ -38,7 +38,7 @@ jobs:
         run: |
           terraform workspace new dev || terraform workspace select dev
 
-      # Allow terraform to make genraed secrets acessible
+      # Allow terraform to make secrets acessible
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v1
         with:
@@ -55,7 +55,7 @@ jobs:
         run: |
           terraform apply -var-file envs/var.tfvars  -auto-approve
 
-      # Assign iam user keys to envronment variabels
+      # Install AWS CLI to test file upload to S3 using iam user keys
       - name: Insatall AWS CLI
         run: |
           sudo apt-get install python3-setuptools
