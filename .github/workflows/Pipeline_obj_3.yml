@@ -58,7 +58,7 @@ jobs:
       - name: test envs
         run: |
           echo "BUCKET_NAMEX=$(terraform output bucket_name)" >> $GITHUB_ENV
-          echo "${{ env.BUCKET_NAMEX }}""
+          echo "${{ env.BUCKET_NAMEX }}"
           echo $(terraform output bucket_name)
           BUCKETT=$(terraform output bucket_name)
           echo Bucket is $BUCKET    
