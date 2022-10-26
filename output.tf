@@ -6,7 +6,7 @@ output "s3_bucket" {
 
 # Make the bucket name reachabel to upload files to S3. 
 output "bucket_name" {
-  value       = aws_s3_bucket.example.name
+  value       = aws_s3_bucket.example.bucket
   description = "Access key id for test user"
 }
 
