@@ -61,7 +61,7 @@ jobs:
           echo "BUCKET_NAMEX=$(terraform output bucket_name)" >> $GITHUB_ENV
   
 
-      # Install AWS CLI to test file upload to S3 using iam user keys
+      # Install AWS CLI to test the file upload to the S3 bucket using iam user keys
       - name: Insatall AWS CLI
         run: |
           sudo apt-get install python3-setuptools
